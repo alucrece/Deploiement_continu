@@ -18,12 +18,14 @@ Installation et Exécution
 
 1️. Cloner le projet
   git clone git@github.com:alucrece/Deploiement_continu.git
-cd TON_REPO
+  
 2️. Installer les dépendances
   npm install
+  
 3️. Lancer le projet en local
   npm start
   Ouvre http://localhost:3000 pour voir l'application.
+  
 Tests & Couverture
 Exécuter tous les tests
   npm test
