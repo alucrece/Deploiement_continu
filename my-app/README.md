@@ -7,11 +7,17 @@ Ce projet est une application React permettant à un utilisateur de s'enregistre
 Fonctionnalités
 
 Vérification des champs en temps réel
+
 Désactivation du bouton tant que tous les champs ne sont pas valides
+
 Validation stricte des entrées (âge, email, code postal, etc.)
+
 Affichage d'un toaster de succès ou d'erreur
+
 Stockage des données valides dans le localStorage
+
 Tests unitaires et d'intégration avec une couverture de 100%
+
 Déploiement automatique via GitHub Actions sur GitHub Pages
 
 Installation et Exécution
