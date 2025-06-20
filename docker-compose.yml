@@ -1,0 +1,42 @@
+services:
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mysql
+
+  react:
+    build:
+      context: ./my-app
+      dockerfile: Dockerfile
+    volumes:
+      - ./my-app:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
+
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: myapp
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql/migration-v001.sql:/docker-entrypoint-initdb.d/01-init.sql
+      - ./mysql/migration-v002.sql:/docker-entrypoint-initdb.d/02-migration.sql
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
