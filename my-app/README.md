@@ -1,4 +1,4 @@
-Projet d'Inscription avec Validation et Stockage Local
+Application React avec validation de formulaire, tests complets, couverture à 100 %, et déploiement GitHub Pages + npm.
 
 Description
 
@@ -37,3 +37,12 @@ Exécuter tous les tests
   npm test
 Vérifier la couverture des tests
   npm test -- --coverage
+
+⚙️ Installation
+npm install
+npm run dev
+
+Pour lancer les tests :
+
+Edit
+npm run test
