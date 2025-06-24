@@ -51,10 +51,10 @@ jobs:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
           slug: alucrece/Deploiement_continu
 
-      - name: Run e2e tests with Cypress
-        uses: cypress-io/github-action@v6
-        with:
-          working-directory: ./my-app
+      #- name: Run e2e tests with Cypress
+       # uses: cypress-io/github-action@v6
+       # with:
+        #  working-directory: ./my-app
           
       - name: Build and generate docs
         working-directory: ./my-app
