@@ -41,7 +41,8 @@
     "@testing-library/user-event": "^14.6.1",
     "cypress": "^14.5.0",
     "jest": "^27.5.1",
-    "jsdoc": "^4.0.4"
+    "jsdoc": "^4.0.4",
+    "wait-on": "^8.0.3"
   },
   "jest": {
     "transformIgnorePatterns": [
