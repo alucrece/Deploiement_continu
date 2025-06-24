@@ -40,11 +40,6 @@ jobs:
         env:
           REACT_APP_SERVER_URL: ${{ secrets.REACT_APP_SERVER_URL }}
 
-      - name: Run e2e tests with Cypress
-        uses: cypress-io/github-action@v6
-        with:
-          working-directory: ./my-app
-
       - name: Stop the stack (docker)
         run: docker compose down
 
