@@ -1,6 +1,6 @@
 export const validationNameorCity = (value) => {
     if (typeof value !== "string") return false;
-    const regex = /^[a-zA-ZÀ-ÖØ-öø-ÿ\-\'\s]+$/;
+    const regex = /^[a-zA-ZÀ-ÖØ-öø-ÿ\-'\s]+$/;
     return regex.test(value.trim());
 };
 

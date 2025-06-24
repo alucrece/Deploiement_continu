@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 function App() {
   const port = process.env.REACT_APP_SERVER_PORT;
-  let [usersCount, setUsersCount] = useState(0);
+  let [, setUsersCount] = useState(0);
   
   useEffect(() => {
     async function countUsers() {
@@ -20,7 +20,7 @@ function App() {
       }
     }
     countUsers()
-  }, [])
+  }, [port])
   return (
     <div>
       <h1>Formulaire d'inscription</h1>
