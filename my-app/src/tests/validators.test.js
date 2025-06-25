@@ -59,3 +59,29 @@ describe("validationPostalCode", () => {
     expect(validationPostalCode("")).toBe(false);
   });
 });
+
+describe("validationNameorCity - cas non string", () => {
+  it("retourne false pour une valeur non string", () => {
+    expect(validationNameorCity(123)).toBe(false);
+    expect(validationNameorCity(undefined)).toBe(false);
+  });
+});
+
+describe("validationAge - cas invalides", () => {
+  it("retourne false pour une date vide ou invalide", () => {
+    expect(validationAge("")).toBe(false); // !birthdate
+    expect(validationAge("abcd")).toBe(false); // isNaN(date)
+  });
+});
+
+describe("validationPostalCode - cas non string", () => {
+  it("retourne false pour une valeur non string", () => {
+    expect(validationPostalCode(75001)).toBe(false);
+    expect(validationPostalCode(undefined)).toBe(false);
+  });
+});
+
+test("validationAge retourne false si birthdate est vide ou invalide", () => {
+  expect(validationAge(null)).toBe(false);
+  expect(validationAge("invalid-date")).toBe(false);
+});

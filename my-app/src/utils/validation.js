@@ -1,11 +1,13 @@
 export const validationNameorCity = (value) => {
-    if (typeof value !== "string") return false;
+    if (typeof value !== "string")
+        return false;
     const regex = /^[a-zA-ZÀ-ÖØ-öø-ÿ\-'\s]+$/;
     return regex.test(value.trim());
 };
 
 export const validationEmail = (value) => {
-    if (typeof value !== "string") return false;
+    if (typeof value !== "string")
+        return false;
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(value.trim());
 };
@@ -13,7 +15,8 @@ export const validationEmail = (value) => {
 export const validationAge = (birthdate) => {
     if (!birthdate) return false;
     const birthDate = new Date(birthdate);
-    if (isNaN(birthDate.getTime())) return false;
+    if (isNaN(birthDate.getTime()))
+        return false;
 
     const today = new Date();
     let age = today.getFullYear() - birthDate.getFullYear();
@@ -28,7 +31,8 @@ export const validationAge = (birthdate) => {
 };
 
 export const validationPostalCode = (postalCode) => {
-    if (typeof postalCode !== "string") return false;
+    if (typeof postalCode !== "string")
+        return false;
     const regex = /^[0-9]{5}$/;
     return regex.test(postalCode.trim());
 };
