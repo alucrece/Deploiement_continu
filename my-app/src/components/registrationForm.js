@@ -105,6 +105,7 @@ const RegistrationForm = () => {
             name="birthdate"
             value={formData.birthdate}
             onChange={handleChange}
+            data-testid="birthdate"
           />
           {errors.birthdate && <p style={{ color: "red" }}>{errors.birthdate}</p>}
         </div>
@@ -131,7 +132,7 @@ const RegistrationForm = () => {
         <div>
           <button
             type="submit"
-            disabled={Object.values(formData).some((val) => !val)}
+            //disabled={Object.values(formData).some((val) => !val)}
           >
             S'enregistrer
           </button>
