@@ -1,52 +1,61 @@
-import { validationNameorCity, validationEmail, validationAge, validationPostalCode } from "../utils/validation";
+import {
+  validationNameorCity,
+  validationEmail,
+  validationAge,
+  validationPostalCode,
+} from "../utils/validation";
 
-describe("Validation Functions", () => {
-  
-  test("validationNameorCity should return true for valid names or cities", () => {
-    expect(validationNameorCity("John")).toBe(true);
-    expect(validationNameorCity("Paris")).toBe(true);
-    expect(validationNameorCity("Àlvaro")).toBe(true);
-    expect(validationNameorCity("Saint-Jean")).toBe(true);
+describe("validationNameorCity", () => {
+  it("valide un nom correct", () => {
+    expect(validationNameorCity("Jean Dupont")).toBe(true);
+    expect(validationNameorCity("Élodie-Renée")).toBe(true);
   });
 
-  test("validationNameorCity should return false for invalid names or cities", () => {
-    expect(validationNameorCity("John123")).toBe(false);
-    expect(validationNameorCity("Paris#")).toBe(false);
-    expect(validationNameorCity("123")).toBe(false);
-    expect(validationNameorCity("!@#$")).toBe(false);
+  it("rejette un nom vide ou invalide", () => {
+    expect(validationNameorCity("")).toBe(false);
+    expect(validationNameorCity("1234")).toBe(false);
+    expect(validationNameorCity(null)).toBe(false);
   });
+});
 
-  test("validationEmail should return true for valid email addresses", () => {
+describe("validationEmail", () => {
+  it("valide un email correct", () => {
     expect(validationEmail("test@example.com")).toBe(true);
-    expect(validationEmail("john.doe@example.co.uk")).toBe(true);
-    expect(validationEmail("user@domain.org")).toBe(true);
   });
 
-  test("validationEmail should return false for invalid email addresses", () => {
-    expect(validationEmail("testexample.com")).toBe(false);
-    expect(validationEmail("user@domain")).toBe(false);
+  it("rejette un email invalide", () => {
+    expect(validationEmail("not-an-email")).toBe(false);
+    expect(validationEmail("test@.com")).toBe(false);
+    expect(validationEmail("")).toBe(false);
+  });
+});
+
+describe("validationAge", () => {
+  it("valide une date de naissance majeure", () => {
+    const birthdate = "2000-01-01";
+    expect(validationAge(birthdate)).toBe(true);
   });
 
-  test("validationAge should return true for ages 18 and above", () => {
-    expect(validationAge("2000-01-01")).toBe(true);
-    expect(validationAge("1990-05-15")).toBe(true);
-  });
-
-  test("validationAge should return false for invalid birthdates", () => {
-    expect(validationAge("invalid-date")).toBe(false);
+  it("rejette une date vide ou invalide", () => {
     expect(validationAge("")).toBe(false);
+    expect(validationAge("abcd")).toBe(false);
   });
 
-  test("validationPostalCode should return true for valid postal codes", () => {
+  it("rejette une personne mineure", () => {
+    const recentBirthdate = new Date();
+    recentBirthdate.setFullYear(recentBirthdate.getFullYear() - 10);
+    expect(validationAge(recentBirthdate.toISOString().split("T")[0])).toBe(false);
+  });
+});
+
+describe("validationPostalCode", () => {
+  it("valide un code postal à 5 chiffres", () => {
     expect(validationPostalCode("75001")).toBe(true);
-    expect(validationPostalCode("12345")).toBe(true);
-    expect(validationPostalCode("99999")).toBe(true);
   });
 
-  test("validationPostalCode should return false for invalid postal codes", () => {
-    expect(validationPostalCode("7500A")).toBe(false);
-    expect(validationPostalCode("123456")).toBe(false);
+  it("rejette un code postal invalide", () => {
+    expect(validationPostalCode("7500")).toBe(false);
     expect(validationPostalCode("ABCDE")).toBe(false);
+    expect(validationPostalCode("")).toBe(false);
   });
-
 });
