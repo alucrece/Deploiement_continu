@@ -64,6 +64,12 @@ jobs:
         env:
           REACT_APP_SERVER_URL: ${{ secrets.REACT_APP_SERVER_URL }}
       
+      - name: Configure Git identity
+        working-directory: ./my-app
+        run: |
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "github-actions"
+
       - name: Deploy to GitHub Pages
         working-directory: ./my-app
         run: npm run deploy
