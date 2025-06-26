@@ -63,3 +63,9 @@ jobs:
           npm run build --if-present
         env:
           REACT_APP_SERVER_URL: ${{ secrets.REACT_APP_SERVER_URL }}
+      
+      - name: Deploy to GitHub Pages
+        working-directory: ./my-app
+        run: npm run deploy
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
