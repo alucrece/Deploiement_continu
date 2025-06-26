@@ -1,0 +1,6 @@
+node_modules
+build
+.dockerignore
+Dockerfile
+/my-app/node_modules
+/server/node_modules
