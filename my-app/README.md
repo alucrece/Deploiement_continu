@@ -1,48 +1,68 @@
-Application React avec validation de formulaire, tests complets, couverture à 100 %, et déploiement GitHub Pages + npm.
+Deploiement Continu - React App
 
-Description
+Ce projet a été initialisé avec Create React App et enrichi par une intégration continue avec GitHub Actions, des tests complets, une couverture Codecov à 100 %, et un déploiement automatique sur GitHub Pages.
 
-Ce projet est une application React permettant à un utilisateur de s'enregistrer via un formulaire. Le formulaire effectue une validation des champs avant d'autoriser la soumission. Si les informations sont correctes, elles sont sauvegardées dans le localStorage, et un message de succès s'affiche. En cas d'erreur, des messages d'erreur sont affichés sous les champs concernés.
+🌐 Liens utiles
 
-Fonctionnalités
+✨ Application déployée : Voir sur GitHub Pages
 
-Vérification des champs en temps réel
+✅ Couverture de code : Rapport Codecov
 
-Désactivation du bouton tant que tous les champs ne sont pas valides
+💡 Scripts disponibles
 
-Validation stricte des entrées (âge, email, code postal, etc.)
+Dans le dossier my-app, vous pouvez exécuter :
 
-Affichage d'un toaster de succès ou d'erreur
+npm start
 
-Stockage des données valides dans le localStorage
+Lance l'application en mode développement.
+Ouvrez http://localhost:3000 pour voir dans le navigateur.
 
-Tests unitaires et d'intégration avec une couverture de 100%
+npm test
 
-Déploiement automatique via GitHub Actions sur GitHub Pages
+Lance les tests unitaires et affiche la couverture de code.
 
-Installation et Exécution
+npm run build
 
-1️. Cloner le projet
-  git clone git@github.com:alucrece/Deploiement_continu.git
-  
-2️. Installer les dépendances
-  npm install
-  
-3️. Lancer le projet en local
-  npm start
-  Ouvre http://localhost:3000 pour voir l'application.
-  
-Tests & Couverture
-Exécuter tous les tests
-  npm test
-Vérifier la couverture des tests
-  npm test -- --coverage
+Construit l'application pour la production dans le dossier build/.
+Les fichiers sont minifiés et prêts à être déployés.
 
-⚙️ Installation
-npm install
-npm run dev
+npm run eject
 
-Pour lancer les tests :
+Attention : cette commande est irréversible.
+Elle expose toute la configuration interne (webpack, Babel, etc.).
 
-Edit
-npm run test
+🧰 Tests et couverture
+
+Couverture globale actuelle : 100 %
+
+Framework : Jest + @testing-library/react
+
+E2E (optionnel) : Cypress
+
+Les tests se trouvent dans le dossier src/tests/.
+
+🚀 Intégration Continue
+
+Le dépôt utilise GitHub Actions pour :
+
+Installer les dépendances
+
+Lancer les tests unitaires
+
+Générer le rapport de couverture
+
+Uploader vers Codecov
+
+Construire l'application
+
+Déployer automatiquement sur GitHub Pages
+
+📖 Pour aller plus loin
+
+Create React App - Documentation
+
+React - Documentation officielle
+
+GitHub Actions
+
+Codecov
