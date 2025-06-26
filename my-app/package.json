@@ -18,7 +18,8 @@
     "eject": "react-scripts eject",
     "jsdoc": "jsdoc -c jsdoc.json",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build -u \"github-actions <github-actions@github.com>\" -r https://x-access-token:${GH_TOKEN}@github.com/alucrece/Deploiement_continu.git"
+
   },
   "eslintConfig": {
     "extends": [
