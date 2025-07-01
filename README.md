@@ -4,12 +4,12 @@
 
 Ce projet a été initialisé avec **Create React App** et enrichi par une intégration continue avec GitHub Actions, des tests complets, une couverture Codecov à 100 %, et un déploiement automatique sur GitHub Pages.
 
-## 🌐 Liens utiles
+## Liens utiles
 
-- ✨ **Application déployée** : [Voir sur GitHub Pages](https://alucrece.github.io/Deploiement_continu)
-- ✅ **Couverture de code** : [Rapport Codecov](https://app.codecov.io/gh/alucrece/Deploiement_continu)
+-  **Application déployée** : [Voir sur GitHub Pages](https://alucrece.github.io/Deploiement_continu)
+-  **Couverture de code** : [Rapport Codecov](https://app.codecov.io/gh/alucrece/Deploiement_continu)
 
-## 💡 Scripts disponibles
+##  Scripts disponibles
 
 Dans le dossier `my-app`, vous pouvez exécuter :
 
@@ -32,7 +32,7 @@ Les fichiers sont minifiés et prêts à être déployés.
 **Attention** : cette commande est irréversible.
 Elle expose toute la configuration interne (webpack, Babel, etc.).
 
-## 🧰 Tests et couverture
+## Tests et couverture
 
 - Couverture globale actuelle : **100 %**
 - Framework : `Jest` + `@testing-library/react`
@@ -40,7 +40,7 @@ Elle expose toute la configuration interne (webpack, Babel, etc.).
 
 Les tests se trouvent dans le dossier `src/tests/`.
 
-## 🚀 Intégration Continue
+## Intégration Continue
 
 Le dépôt utilise **GitHub Actions** pour :
 - Installer les dépendances
@@ -50,7 +50,7 @@ Le dépôt utilise **GitHub Actions** pour :
 - Construire l'application
 - Déployer automatiquement sur GitHub Pages
 
-## 📖 Pour aller plus loin
+## Pour aller plus loin
 
 - [Create React App - Documentation](https://create-react-app.dev/docs/getting-started)
 - [React - Documentation officielle](https://react.dev/)
