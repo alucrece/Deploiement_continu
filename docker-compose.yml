@@ -2,12 +2,13 @@ services:
   server:
     build:
       context: ./server
-      dockerfile: Dockerfile
+      dockerfile: DockerfilePython
     volumes:
-      - ./server:/app
-      - /app/node_modules
+      - ./server:/server
     ports:
       - "5000:5000"
+    env_file:
+      - ./server/.env
     depends_on:
       - mysql
 
