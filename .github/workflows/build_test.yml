@@ -25,13 +25,21 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install dependencies and run tests
+      - name: Install dependencies and run frontend tests
         working-directory: ./my-app
         run: |
           npm ci
           npm test -- --coverage
         env:
           REACT_APP_SERVER_URL: ${{ secrets.REACT_APP_SERVER_URL }}
+
+      - name: Create .env file for backend
+        run: |
+          echo "DB_HOST=${{ secrets.DB_HOST }}" > ./server/.env
+          echo "DB_USER=${{ secrets.DB_USER }}" >> ./server/.env
+          echo "DB_PASS=${{ secrets.DB_PASS }}" >> ./server/.env
+          echo "DB_NAME=${{ secrets.DB_NAME }}" >> ./server/.env
+          # Ajoute d'autres variables si besoin ici
 
       - name: Build the stack (docker)
         run: |
@@ -55,7 +63,7 @@ jobs:
        # uses: cypress-io/github-action@v6
        # with:
         #  working-directory: ./my-app
-          
+
       - name: Build and generate docs
         working-directory: ./my-app
         run: |
@@ -75,8 +83,8 @@ jobs:
         run: npm run deploy
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
-      - name: Install backend dependencies and run tests
+
+      - name: Install backend dependencies and run backend tests
         working-directory: ./server
         run: |
           npm ci
