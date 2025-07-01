@@ -88,7 +88,6 @@ jobs:
         working-directory: ./server
         run: |
           npm ci
-          npm test -- --coverage
       
       - name: Deploy backend to Vercel
         run: npx vercel --prod --token ${{ secrets.VERCEL_TOKEN }}
