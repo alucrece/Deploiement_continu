@@ -50,13 +50,7 @@ jobs:
 
       - name: Stop the stack (docker)
         run: docker compose down
-
-      - name: Vérifier le fichier coverage
-        run: ls -l ./my-app/coverage && cat ./my-app/coverage/lcov.info
-
-      - name: Corriger les chemins dans lcov.info (backslash → slash)
-        run: sed -i 's#\\#/#g' ./my-app/coverage/lcov.info
-
+      
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
         with:
