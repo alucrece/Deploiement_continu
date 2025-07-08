@@ -1,21 +1,14 @@
--- Sélection de la base de données
-USE ynov_ci;
-
--- Suppression de la table si elle existe déjà
-DROP TABLE IF EXISTS users;
-
--- Création de la table users
+use ynov_ci;
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL UNIQUE,
-    email VARCHAR(100) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    role ENUM('admin', 'user') DEFAULT 'user',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    lastName VARCHAR(100) NOT NULL,
+    firstName VARCHAR(100) Not Null,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    birthDate DATETIME NOT NULL,
+    city VARCHAR(100) NOT NULL, 
+    postalCode VARCHAR(100) Not Null,
+    date_inscription DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
--- Insertion de quelques utilisateurs
-INSERT INTO users (username, email, password, role) VALUES
-('admin', 'admin@example.com', 'hashed_password_admin', 'admin'),
-('johndoe', 'johndoe@example.com', 'hashed_password_john', 'user'),
-('janedoe', 'janedoe@example.com', 'hashed_password_jane', 'user');
+INSERT INTO users (lastName, firstName, email, birthDate, city, postalCode)
+VALUES ('lea', 'mele', 'lea.mele@email.com', STR_TO_DATE('10/05/1980', '%d/%m/%Y'), 'Nice','06200');

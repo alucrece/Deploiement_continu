@@ -2,7 +2,7 @@ FROM python:3.11-slim
 
 WORKDIR /server
 
-RUN pip install --no-cache-dir mysql-connector-python fastapi uvicorn python-dotenv pyjwt
+RUN pip install --no-cache-dir mysql-connector-python fastapi uvicorn python-dotenv pyjwt email-validator
 
 EXPOSE 5000
 

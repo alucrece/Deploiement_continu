@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import { validationNameorCity, validationAge, validationPostalCode, validationEmail } from "../utils/validation";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+
 console.log("Test coverage running...");
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
-    birthdate: "",
+    birthDate: "",
     city: "",
     postalCode: "",
   });
@@ -25,7 +27,7 @@ const RegistrationForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = {};
 
@@ -38,8 +40,8 @@ const RegistrationForm = () => {
     if (!validationEmail(formData.email)) {
       validationErrors.email = "Veuillez fournir un email valide.";
     }
-    if (!validationAge(formData.birthdate)) {
-      validationErrors.birthdate = "Vous devez avoir au moins 18 ans.";
+    if (!validationAge(formData.birthDate)) {
+      validationErrors.birthDate = "Vous devez avoir au moins 18 ans.";
     }
     if (!validationNameorCity(formData.city)) {
       validationErrors.city = "Le nom de la ville contient des caractères invalides.";
@@ -53,13 +55,26 @@ const RegistrationForm = () => {
       toast.error("Veuillez corriger les erreurs du formulaire.");
     } else {
       setErrors({});
-      localStorage.setItem("formData", JSON.stringify(formData));
-      toast.success("Formulaire soumis avec succès !");
+      try {
+        const api = axios.create({
+          baseURL: `http://localhost:5000`,
+        });
+
+        await api.post("/users", formData);
+
+        toast.success("Formulaire soumis avec succès !");
+        localStorage.setItem("formData", JSON.stringify(formData));
+        } catch (error) {
+        console.error(error);
+        toast.error("Une erreur est survenue lors de l'enregistrement.");
+        }
+      //localStorage.setItem("formData", JSON.stringify(formData));
+      //toast.success("Formulaire soumis avec succès !");
       setFormData({
         firstName: "",
         lastName: "",
         email: "",
-        birthdate: "",
+        birthDate: "",
         city: "",
         postalCode: "",
       });
@@ -102,12 +117,12 @@ const RegistrationForm = () => {
         <div>
           <input
             type="date"
-            name="birthdate"
-            value={formData.birthdate}
+            name="birthDate"
+            value={formData.birthDate}
             onChange={handleChange}
-            data-testid="birthdate"
+            data-testid="birthDate"
           />
-          {errors.birthdate && <p style={{ color: "red" }}>{errors.birthdate}</p>}
+          {errors.birthDate && <p style={{ color: "red" }}>{errors.birthDate}</p>}
         </div>
         <div>
           <input
